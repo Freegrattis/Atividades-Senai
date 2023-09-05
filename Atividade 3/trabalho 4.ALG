@@ -1,4 +1,6 @@
 Algoritmo "semnome"
+// Disciplina   : [Linguagem e Lógica de Programação] 
+// Professor   : Antonio Carlos Nicolodi 
 
 Var
    alturaLata: real
@@ -11,7 +13,7 @@ Inicio
       leia(alturaLata)
       escreval("Informe o raio da lata ")
       leia(raioLata)
-      volume <- PI x (raioLata ^2) x alturaLata
+      volume <- PI * (raioLata ^ 2) * alturaLata
       escreval("o volume da lata é ", volume)
 
 Fimalgoritmo
