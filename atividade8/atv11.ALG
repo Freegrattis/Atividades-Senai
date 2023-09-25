@@ -21,7 +21,7 @@ Inicio
    escreval("[2] Mostrar numeros impares")
    escreval("[3] Mostrar numeros negativos")
    leia (menu)
-   
+
    escolha menu
    caso 1
       escreval(par," numeros pares")
