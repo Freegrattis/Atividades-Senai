@@ -12,5 +12,5 @@ inicio
 fimfuncao
 Inicio
 
-   escreval(calcularProgressao(5))
+   escreval(calcularProgressao(6))
 Fimalgoritmo
