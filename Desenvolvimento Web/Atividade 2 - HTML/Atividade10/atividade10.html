@@ -25,11 +25,12 @@
         <input type="number" maxlength="200" placeholder="Insira sua Idade">
         <br>
         <label>E-mail:</label>
-        <input type="email">
+        <input type="email"placeholder="Insira seu E-mail" required>
+        <br>
         <br>
 
-        <p>Formação Academica:</p>
-        
+        <label>Formação Academica:</label>
+        <br>
         <input type="radio" name="escolha">
         <label>Ensino Fundamental</label>
         <br>
@@ -53,13 +54,63 @@
         <input type="radio" name="escolha">
         <label>Pós Graduação - Doutorado</label>
         <br>
+        <br>
         
-        <i>Nome do curso</i>
+        <label>Nome do curso:</label>
         <select disabled="disabled">
             <option value="1">Desenvolvimento e Analise de Sistemas</option>
-            <option value="2">Outros</option>
         </select>
+        <br>
+        <br>
 
+        <label>Situação:</label>
+        <br>
+            <input type="radio" name="escolha_situacao" disabled>
+            <label>Em Andamento</label>
+            <br>
+
+            <input type="radio" name="escolha_situacao"disabled>
+            <label>Completo</label>
+            <br>
+
+            <input type="radio" name="escolha_situacao"disabled>
+            <label>Incompleto</label>
+            <br>
+            <br>
+
+            <label>Qual sua satisfação em relação ao curso?</label>
+            <input type="range" min="0" max="10">
+            <br>
+            <br>
+
+            <label >Descreva como esta sendo sua experiencia até o momento:</label>
+            <br>
+            <textarea name="descricao" id="" cols="30" rows="10" placeholder="Descreva aqui..."></textarea>
+            <br>
+            <br>
+
+            <label>Escolha uma senha:</label>
+            <input type="password" maxlength="20" placeholder="Insira sua senha" >
+            <br>
+            <br>
+            <label>Confirme sua senha:</label>
+            <input type="password" maxlength="20" placeholder="Insira sua senha" >
+            <br>
+            <br>
+            
+            <label >Confirme:</label>
+            <br>
+            
+            <input type="checkbox">
+            <label>Concordo com os termos.</label>
+            <br>
+            <input type="checkbox">
+            <label>Gostaria de receber e-mails e notificações.</label>
+            <br>
+            <br>
+            <input type="submit" value="salvar">
+        <br>
+        <br>
         <br>
     </form>
 </body>
