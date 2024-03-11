@@ -48,25 +48,28 @@ create table consulta(
     foreign key(codigo_funcionario)references funcionario(codigo_funcionario)
 );
 create table exame(
-	codigo int primary key auto_increment not null,
+	codigo_exame int primary key auto_increment not null,
     preco decimal not null,
     sobrenome date not null,
-    email varchar(45) not null
-    
-  
+    email varchar(45) not null,
+    foreign key(codigo_animal)references animal(codigo_animal),
+	foreign key(codigo_funcionario)references funcionario(codigo_funcionario),
+    foreign key(codigo_tipo_exame)references tipo_exame(codigo_tipo_exame)
 );
 
 create table tipo_exame(
-	codigo int primary key auto_increment not null,
+	codigo_tipo_exame int primary key auto_increment not null,
     descricao varchar(100) not null
+    
 );
 
 create table internação(
 	codigo int primary key auto_increment not null,
     preco decimal not null,
     data_entrada date not null,
-    data_alta date not null
-    
+    data_alta date not null,
+    foreign key(codigo_animal)references animal(codigo_animal),
+    foreign key(codigo_funcionario)references funcionario(codigo_funcionario)
   
 );
 
@@ -74,9 +77,9 @@ create table acompanhamento(
 	codigo int primary key auto_increment not null,
     descricao varchar(100) not null,
     data_acompanhamento date not null,
-    horario time not null
-    
-  
+    horario time not null,
+    foreign key(codigo_animal)references animal(codigo_animal),
+	foreign key(codigo_funcionario)references funcionario(codigo_funcionario)
 );
 
 create table administracao_medicamentos(
@@ -84,22 +87,36 @@ create table administracao_medicamentos(
     descricao_funcao varchar(100) not null,
     hora_aplicacao time not null,
     dose int not null,
-    observacao varchar(50)
+    observacao varchar(50),
+    foreign key(codigo_animal)references animal(codigo_animal)
     
     
   
 );
 
 create table medicamento(
-	codigo int primary key auto_increment not null,
-    nome varchar(45) not null,
-    descricao varchar(100)
+	codigo_medicamento int primary key auto_increment not null,
+    nome_medicamento varchar(45) not null,
+    descricao_medicamento varchar(100)
+	
+);
 
+create table relacionamento_medicamento_animal(
+	codigo int primary key auto_increment not null,
+    foreign key(codigo_medicamento)references medicamento(codigo_medicamento),
+    foreign key(codigo_animal)references animal(codigo_animal)
+);
+
+create table relacionamento_medicamento_receita(
+	codigo int primary key auto_increment not null,
+    foreign key(codigo_medicamento)references medicamento(codigo_medicamento),
+    foreign key(codigo_receita)references receita(codigo_receita)
 );
 
 create table receita(
-	codigo int primary key auto_increment not null,
-    preco decimal not null,
-    prescricao varchar(1000 not null
-    
+	codigo_receita int primary key auto_increment not null,
+    preco_receita decimal not null,
+    prescricao_receita varchar(1000) not null,
+    foreign key(codigo_animal)references animal(codigo_animal),
+    foreign key(codigo_funcionario)references funcionario(codigo_funcionario)
 );
