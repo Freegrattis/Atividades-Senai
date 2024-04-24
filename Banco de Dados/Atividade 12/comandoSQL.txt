@@ -1,0 +1,42 @@
+Atividade 01
+
+INSERT INTO dados_historicos(descricao_conjunto_dados_historicos, 
+    minimo_estimado_dados_historicos, media_estimada_dados_historicos, 
+    maximo_estimado_dados_historicos, fk_id_subrregiao_continental) 
+    VALUES 
+    ('Dados populacionais da América do Norte', 0, 9700000, 0, 3),
+    ('Dados populacionais da América Central', 0, 7000000, 0, 1),
+    ('Dados populacionais da América do Sul', 0, 21000000, 0, 2);
+
+
+UPDATE dados_historicos 
+	SET media_estimada_dados_historicos=13500000
+    WHERE pk_id_dados_historicos =3;
+    
+UPDATE dados_historicos 
+	SET media_estimada_dados_historicos=25800000
+    WHERE pk_id_dados_historicos =1;
+
+UPDATE dados_historicos 
+	SET media_estimada_dados_historicos=11500000
+    WHERE pk_id_dados_historicos =5;
+
+
+
+CREATE VIEW viewPopulacaoAtual AS
+	SELECT R.nome_subrregiao_continental,
+    D.media_estimada_dados_historicos
+    	FROM subrregiao_continental AS R
+        INNER JOIN dados_historicos AS D 
+        	ON R.pk_id_subrregiao_continental=
+            D.fk_id_subrregiao_continental
+            GROUP BY R.pk_id_subrregiao_continental;
+
+
+Atividade 02
+
+create view viewPopulacaoPorEstado as
+select SUM(P.populacao_atual), E.nome_estado from estado_has_povo as EP 
+inner join povo as P on P.pk_id_povo = EP.fk_id_povo 
+inner join estado as E on E.pk_id_estado = EP.fk_id_estado 
+group by E.nome_estado;
