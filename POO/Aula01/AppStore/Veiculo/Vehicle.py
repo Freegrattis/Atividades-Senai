@@ -40,7 +40,7 @@ class Vehicle:
         self.__model = value
 
     def start(self):
-        return f"{self.__model} ligado."
+        return f"{self.__model} on."
 
     def stop(self):
-        return f"{self.__model} desligado."
+        return f"{self.__model} off."

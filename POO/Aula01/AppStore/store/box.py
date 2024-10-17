@@ -9,32 +9,32 @@ class Box:
     def add_vehicle(self, vehicle):
         if len(self.inventory) < self.max_capacity:
             self.inventory.append(vehicle)
-            print(f"{vehicle._model} adicionado ao inventário.")
+            print(f"{vehicle._model} added to inventory.")
         else:
-            print("Capacidade máxima atingida! Não é possível adicionar mais veículos.")
+            print("Maximum capacity reached! It is not possible to purchase more vehicles.")
 
     def sell_vehicle(self, vehicle):
         if vehicle in self.inventory:
             self.inventory.remove(vehicle)
             self.sold_vehicles.append(vehicle)
             self.funds += vehicle.price
-            self.transaction_log.append(f"Vendido: {vehicle._model} por R${vehicle.price:.2f}")
-            print(f"Veículo {vehicle._model} vendido por R${vehicle.price:.2f}.")
+            self.transaction_log.append(f"purcharsed: {vehicle._model} by R${vehicle.price:.2f}")
+            print(f"vehicle {vehicle._model} purchased by R${vehicle.price:.2f}.")
         else:
-            print(f"O veículo {vehicle._model} não está no inventário.")
+            print(f"The vehicle {vehicle._model} is not in stock.")
 
     def buy_vehicle(self, vehicle):
         if len(self.inventory) < self.max_capacity:
             self.inventory.append(vehicle)
             self.funds -= vehicle.price
-            self.transaction_log.append(f"Comprado: {vehicle._model} por R${vehicle.price:.2f}")
-            print(f"Veículo {vehicle._model} comprado por R${vehicle.price:.2f}.")
+            self.transaction_log.append(f"Purchased: {vehicle._model} by R${vehicle.price:.2f}")
+            print(f"Vehicle {vehicle._model} purchased by R${vehicle.price:.2f}.")
         else:
-            print("Capacidade máxima atingida! Não é possível comprar mais veículos.")
+            print("Maximum capacity reached! It is not possible to purchase more vehicles.")
 
     def show_inventory(self):
         if self.inventory:
-            print("Veículos disponíveis no inventário:")
+            print("Vehicles available in inventory:")
             for vehicle in self.inventory:
                 print(f"- {vehicle._model} ({vehicle._year_construction}) - R${vehicle.price:.2f}")
         else:
